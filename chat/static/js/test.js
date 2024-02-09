@@ -1,5 +1,6 @@
 var replyText = document.getElementById('reply-text');
 var chatInput = document.getElementById('chat-input')
+var replyBox = document.getElementById('replyBox');
 
 const MODEL_API_URL = 'http://127.0.0.1:8000/ask/';
 
@@ -22,6 +23,7 @@ async function evokeModel(){
             if (data.result === 'success') {
                 answer_para.innerText = data.response;
                 replyText.appendChild(answer_para);
+                replyBox.style.display = 'block';
                 console.log(data.response);
             } else {
                 answer_para.innerText = data.message;
